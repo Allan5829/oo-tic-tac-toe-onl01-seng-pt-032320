@@ -108,12 +108,34 @@ class TicTacToe
   end 
   
   def draw?
-    if (won? != false)
+    if (full? == true)
+      if (won? == false)
+        return true
+      end 
+    elsif (won? != false)
       return false
-    elsif (full? == true) && (won? == false)
-      return true 
     else
       return false
+    end 
+  end 
+  
+  def over?
+    if (won? != false)
+      return true 
+    elsif (full? ==  true)
+      return true
+    elsif (full? == false)
+      return false
+    end 
+  end 
+  
+  def winner
+    win = ""
+    if (won? != false)
+      win = turn_count
+      puts "#{win}"
+    elsif (won? == false) 
+      return nil
     end 
   end 
   
