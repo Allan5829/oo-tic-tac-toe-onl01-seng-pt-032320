@@ -72,17 +72,18 @@ class TicTacToe
   end 
   
   def won?
-    tic = ""
-    tac = ""
-    toe = ""
     tic_tac_toe = false
+    comparison_array = []
     winning_array = []
-    WIN_COMBINATIONS.each do |combination, value|
-      tic = @board [value[0]]
-      tac = @board [value[1]]
-      toe = @board [value[2]]
-      if (tic == "X" && tac == "X" && toe == "X") ||
-         (tic == "O" && tac == "O" && toe == "O")
+    WIN_COMBINATIONS.each do |combination|
+      comparison_array = []
+      winning_array = []
+      combination.each do |value|
+        comparison_array << @board [value]
+        winning_array << value
+      end 
+      if (comparison_array == [("X"), ("X"), ("X")]) || 
+         (comparison_array == [("O"), ("O"), ("O")])
          tic_tac_toe = true
          return winning_array
       end 
@@ -105,5 +106,7 @@ class TicTacToe
       return false
     end
   end 
+  
+  
   
 end 
