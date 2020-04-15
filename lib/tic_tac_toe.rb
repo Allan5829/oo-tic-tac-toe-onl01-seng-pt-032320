@@ -63,7 +63,7 @@ class TicTacToe
     turn_count % 2 == 0 ? "X" : "O"
   end
   
-  def turn 
+  def turn #not finished
     puts "Please enter 1-9:"
     input = gets
     index_value = input_to_index (input)
@@ -107,11 +107,9 @@ class TicTacToe
     end
   end 
   
-  def draw?
-    if (full? == true)
-      if (won? == false)
-        return true
-      end 
+  def draw? #not finished
+    if (full? == true) && (won? == false)
+      return true
     elsif (won? != false)
       return false
     else
@@ -119,7 +117,7 @@ class TicTacToe
     end 
   end 
   
-  def over?
+  def over? #not finished
     if (won? != false)
       return true 
     elsif (full? ==  true)
@@ -129,14 +127,27 @@ class TicTacToe
     end 
   end 
   
-  def winner
+  def winner #not finished
     win = ""
     if (won? != false)
-      win = turn_count
-      puts "#{win}"
-    elsif (won? == false) 
+      win = turn_count % 2 == 0 ? "O" : "X"
+      return win
+    else 
       return nil
     end 
+  end 
+  
+  def play #not finished
+    turn_counter = 0
+    puts "Welcome to Tic Tac Toe!"
+    display_board
+    while turn_counter < 9
+    #turn 
+    display_board
+    turn_counter += 1
+    
+    end 
+    
   end 
   
 end 
