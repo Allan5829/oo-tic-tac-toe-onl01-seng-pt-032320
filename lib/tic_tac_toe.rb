@@ -47,7 +47,7 @@ class TicTacToe
     position = @board [index]
     if ((position == "X") || (position == "O"))
       return false
-    elsif ((index < 1) || (index > 9))
+    elsif ((index < 0) || (index > 8))
       return false
     elsif (position == " ")
       return true
@@ -68,9 +68,7 @@ class TicTacToe
     imput = ""
     input = gets
     index_value = input_to_index (input)
-      # binding.pry   
     if (valid_move?(index_value) == true)
-     # binding.pry
       move(index_value, current_player)
       display_board
     elsif (valid_move?(index_value) == false) 
