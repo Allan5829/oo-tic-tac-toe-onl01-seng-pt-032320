@@ -142,12 +142,21 @@ class TicTacToe
     puts "Welcome to Tic Tac Toe!"
     display_board
     while turn_counter < 9
-    #turn 
-    display_board
-    turn_counter += 1
-    
+      turn 
+      display_board
+      turn_counter += 1
+      if (won? != false)
+        turn_counter = 10
+      elsif (full? == true) && (draw? == true)
+        turn_counter = 11
+      end 
     end 
-    
+    if (turn_counter == 11)
+      puts "Cat's Game!"
+    end 
+    if (turn_counter == 10 )
+      #determine winner X/O
+    end 
   end 
   
 end 
