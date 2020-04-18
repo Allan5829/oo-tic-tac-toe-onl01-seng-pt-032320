@@ -65,7 +65,6 @@ class TicTacToe
   
   def turn
     puts "Please enter 1-9:"
-    imput = ""
     input = gets
     index_value = input_to_index (input)
     if (valid_move?(index_value) == true)
@@ -93,7 +92,7 @@ class TicTacToe
          return winning_array
       end 
     end 
-    if tic_tac_toe = false
+    if tic_tac_toe == false
       return false
     end 
   end 
@@ -130,7 +129,7 @@ class TicTacToe
     end 
   end 
   
-  def winner #not finished
+  def winner
     win = ""
     if (!won? == false)
       win = turn_count % 2 == 0 ? "O" : "X"
@@ -140,26 +139,20 @@ class TicTacToe
     end 
   end 
   
-  def play #not finished
-    turn_counter = 0
+  def play 
     puts "Welcome to Tic Tac Toe!"
     display_board
-    while turn_counter < 9
+    while over? == false
       turn 
-      display_board
-      turn_counter += 1
-      if (won? != false)
-        turn_counter = 10
-      elsif (full? == true) && (draw? == true)
-        turn_counter = 11
-      end 
     end 
-    if (turn_counter == 11)
+    if (!won? == false)
+      puts "Congratulations #{winner}!"
+    else 
       puts "Cat's Game!"
-    end 
-    if (turn_counter == 10 )
-      #determine winner X/O
     end 
   end 
   
 end 
+
+game = TicTacToe.new
+game.play
