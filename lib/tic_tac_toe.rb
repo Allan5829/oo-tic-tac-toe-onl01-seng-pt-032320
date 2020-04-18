@@ -1,4 +1,3 @@
-require "pry"
 class TicTacToe
   def initialize(board = nil)
     @board = board || Array.new(9, " ")
@@ -51,6 +50,8 @@ class TicTacToe
       return false
     elsif (position == " ")
       return true
+    else 
+      return true
     end
   end 
   
@@ -62,8 +63,7 @@ class TicTacToe
     turn_count % 2 == 0 ? "X" : "O"
   end
   
-  def turn #not finished
-  # idea make a loop until valid_move? == true
+  def turn
     puts "Please enter 1-9:"
     imput = ""
     input = gets
@@ -71,8 +71,7 @@ class TicTacToe
     if (valid_move?(index_value) == true)
       move(index_value, current_player)
       display_board
-    elsif (valid_move?(index_value) == false) 
-
+    else 
       turn
     end 
   end 
@@ -113,20 +112,18 @@ class TicTacToe
     end
   end 
   
-  def draw? #not finished
-    if (full? == true) && (won? == false)
+  def draw?
+    if ((!won? && full?) == true)
       return true
-    elsif (won? != false)
-      return false
     else
       return false
     end 
   end 
   
-  def over? #not finished
-    if (won? != false)
-      return true 
-    elsif (full? ==  true)
+  def over? 
+    if (draw? ==  true)
+      return true
+    elsif (!won? == false)
       return true
     else
       return false
