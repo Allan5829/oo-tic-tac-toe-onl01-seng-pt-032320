@@ -132,7 +132,7 @@ class TicTacToe
   
   def winner #not finished
     win = ""
-    if (won? != false)
+    if (!won? == false)
       win = turn_count % 2 == 0 ? "O" : "X"
       return win
     else 
