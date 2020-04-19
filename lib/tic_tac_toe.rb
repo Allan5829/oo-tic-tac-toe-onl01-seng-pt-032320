@@ -155,4 +155,3 @@ class TicTacToe
 end 
 
 TicTacToe.new
-game.play
